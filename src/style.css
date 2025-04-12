@@ -1,0 +1,109 @@
+html {
+    height: 100%;
+    display: flex;
+}
+
+body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 15px;
+}
+
+#loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15%;
+    height: 100%;
+}
+
+#loaderImg {
+    width: 25%;
+    height: auto;
+    rotate: 20deg;
+    animation: rotate 1.5s ease-in-out infinite;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+#loaderText {
+    color: black;
+    font-size: larger;
+    background-color: #d12828;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@keyframes rotate {
+    0% {
+        rotate: 20deg;
+    }
+    100% {
+        rotate: 380deg;
+    }
+}
+
+#table {
+    color: #d12828;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+#header,
+label {
+    color: #d12828;
+    padding-bottom: 5px;
+}
+
+.centered {
+    text-align: center;
+    align-items: center;
+}
+
+input {
+    width: 200px;
+    background-color: #d12828;
+    color: black;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input::placeholder {
+    color: black;
+    opacity: 1;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+}
+
+td {
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    min-width: 100px;
+}
+
+#table tr:nth-child(even) {
+    background-color: #d12828;
+}
+
+#table tr:nth-child(odd):not(:first-child) {
+    background-color: #b11e1e;
+}
+
+button {
+    background-color: #b11e1e;
+    color: black;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 50px;
+}
