@@ -266,35 +266,37 @@ async function generateTable(d) {
     title.id = "header";
 
     // Create the header row
-    const headers = [...Object.keys(data[0])]; // Add "Team" manually as the first header
+    const headers = ["#", ...Object.keys(data[0])]; // Add "#" as static index column
     const headerRow = document.createElement("tr");
 
     headers.forEach((text) => {
         const th = document.createElement("th");
         th.textContent = titleSet(text);
-        th.style.cursor = "pointer"; // Indicate clickable sorting
-        th.onclick = () => sortTable(data, text); // Attach sorting function
+
+        if (text !== "#") {
+            th.style.cursor = "pointer"; // Only allow sorting on non-# columns
+            th.onclick = () => sortTable(data, text);
+        }
+
         headerRow.appendChild(th);
     });
 
     table.appendChild(headerRow);
 
     // Populate table rows
-    data.forEach((item) => {
+    data.forEach((item, index) => {
         const row = document.createElement("tr");
 
-        // Add team number in the first column
-        const teamCell = document.createElement("td");
-        teamCell.textContent = item.team;
-        row.appendChild(teamCell);
+        // Add static rank number
+        const numberCell = document.createElement("td");
+        numberCell.textContent = index + 1;
+        row.appendChild(numberCell);
 
-        // Add stats for other columns
+        // Add team number and other stats
         Object.keys(item).forEach((key) => {
-            if (key !== "team") { // Skip the "team" key in the data for the body
-                const cell = document.createElement("td");
-                cell.textContent = item[key];
-                row.appendChild(cell);
-            }
+            const cell = document.createElement("td");
+            cell.textContent = item[key];
+            row.appendChild(cell);
         });
 
         table.appendChild(row);
