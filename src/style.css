@@ -99,6 +99,16 @@ td {
     background-color: #b11e1e;
 }
 
+#table td:first-child {
+    background-color: black;
+    color: #d12828;
+}
+
+#table th:first-child {
+    background-color: black;
+    color: #d12828;
+}
+
 button {
     background-color: #b11e1e;
     color: black;
